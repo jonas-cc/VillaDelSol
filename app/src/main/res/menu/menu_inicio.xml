@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/inicio"
+        android:orderInCategory="1"
+        android:title="INICIO"
+        app:showAsAction="never"></item>
+    <item
+        android:id="@+id/salonuno"
+        android:orderInCategory="2"
+        android:title="SALÓN 1"
+        app:showAsAction="never"></item>
+    <item
+        android:id="@+id/salondos"
+        android:orderInCategory="3"
+        android:title="SALÓN 2"
+        app:showAsAction="never"></item>
+    <item
+        android:id="@+id/paquete"
+        android:orderInCategory="4"
+        android:title="PAQUETES"
+        app:showAsAction="never"></item>
+    <item
+        android:id="@+id/contacto"
+        android:orderInCategory="5"
+        android:title="CONTACTO"
+        app:showAsAction="never"></item>
+
+</menu>
