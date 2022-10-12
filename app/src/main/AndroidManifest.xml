@@ -14,11 +14,17 @@
         android:theme="@style/Theme.VillaDelSol"
         tools:targetApi="31">
         <activity
+            android:name=".Menu"
+            android:exported="false"
+            android:label="@string/title_activity_menu"
+            android:theme="@style/Theme.VillaDelSol.NoActionBar" />
+        <activity
             android:name=".ActividadInicio"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@android:style/Theme.DeviceDefault.NoActionBar.Fullscreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
