@@ -1,5 +1,6 @@
 package com.example.villadelsol.ui.slideshow;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +11,9 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.example.villadelsol.ActividadInicio;
+import com.example.villadelsol.AgeDate;
+import com.example.villadelsol.Menu;
 import com.example.villadelsol.databinding.FragmentSlideshowBinding;
 
 public class SlideshowFragment extends Fragment {
@@ -33,5 +37,10 @@ public class SlideshowFragment extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
+    }
+
+    public void cita(View view) {
+        Intent intent_cita = new Intent(getActivity(),AgeDate.class);
+        startActivity(intent_cita);
     }
 }

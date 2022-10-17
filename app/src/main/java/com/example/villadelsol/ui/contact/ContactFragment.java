@@ -11,22 +11,23 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.example.villadelsol.databinding.FragmentContactBinding;
 import com.example.villadelsol.databinding.FragmentGalleryBinding;
 import com.example.villadelsol.ui.gallery.GalleryViewModel;
 
 public class ContactFragment extends Fragment {
 
-    private FragmentGalleryBinding binding;
+    private FragmentContactBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         ContactViewModel contactViewModel =
                 new ViewModelProvider(this).get(ContactViewModel.class);
 
-        binding = FragmentGalleryBinding.inflate(inflater, container, false);
+        binding = FragmentContactBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textGallery;
+        final TextView textView = binding.textContact;
         contactViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }

@@ -7,6 +7,8 @@ import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.SubMenu;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.ViewFlipper;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -16,17 +18,25 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.example.villadelsol.databinding.ActivityMenuBinding;
+import com.example.villadelsol.ui.home.HomeFragment;
+import com.example.villadelsol.ui.home.HomeViewModel;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
 
-public class Menu extends AppCompatActivity implements android.view.Menu {
+public class Menu extends AppCompatActivity implements android.view.Menu{
 
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityMenuBinding binding;
+    private ViewFlipper v_Flipper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
+
+
+
 
         binding = ActivityMenuBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
@@ -58,6 +68,14 @@ public class Menu extends AppCompatActivity implements android.view.Menu {
         getMenuInflater().inflate(R.menu.menu, menu);
         return true;
     }
+    public void cita(View view) {
+        Intent intent_cita = new Intent(this,AgeDate.class);
+        startActivity(intent_cita);
+    }
+
+
+
+
 
     @Override
     public boolean onSupportNavigateUp() {
