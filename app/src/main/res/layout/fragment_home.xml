@@ -6,20 +6,14 @@
     android:layout_height="match_parent"
     tools:context=".ui.home.HomeFragment">
 
-    <TextView
-        android:id="@+id/text_home"
+    <com.denzcoskun.imageslider.ImageSlider
+        android:id="@+id/image_slider"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        android:visibility="invisible"
+        android:layout_height="200dp"
+        app:iss_auto_cycle="true"
+        app:iss_delay="0"
+        app:iss_period="1000"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
 
@@ -27,81 +21,62 @@
         android:id="@+id/v_flipper"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:autoStart="true"
-        android:background="@drawable/flip1"
-        android:flipInterval="2000"
-        android:inAnimation="@android:anim/slide_in_left"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
         tools:layout_editor_absoluteX="-16dp" />
 
-    <androidx.constraintlayout.utils.widget.MockView
-        android:id="@+id/mockView"
-        android:layout_width="155dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="44dp"
-        app:layout_constraintEnd_toStartOf="@+id/mockView2"
-        app:layout_constraintHorizontal_bias="0.188"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/v_flipper" />
-
-    <androidx.constraintlayout.utils.widget.MockView
-        android:id="@+id/mockView2"
-        android:layout_width="155dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="44dp"
-        android:layout_marginEnd="16dp"
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="186dp"
+        android:layout_height="101dp"
+        android:layout_marginEnd="108dp"
+        android:text="SALON 2\n Da clic en la imagen"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/v_flipper" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView3"
+        app:layout_constraintVertical_bias="0.092" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="191dp"
+        android:layout_height="126dp"
+        android:layout_marginTop="428dp"
+        android:layout_marginEnd="104dp"
+        android:adjustViewBounds="true"
+        android:clickable="true"
+        android:onClick="irS2"
+        android:scaleType="fitXY"
+        android:src="@drawable/s2_1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="155dp"
-        android:layout_height="102dp"
-        android:text="INFORMACIÓN"
+        android:layout_width="194dp"
+        android:layout_height="91dp"
+        android:layout_marginStart="112dp"
+        android:text="SALON 1\n Da clic en la imagen"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/textView3"
-        app:layout_constraintHorizontal_bias="0.188"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mockView"
-        app:layout_constraintVertical_bias="0.049" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+        app:layout_constraintVertical_bias="0.034" />
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="155dp"
-        android:layout_height="102dp"
-        android:layout_marginEnd="16dp"
-        android:text="INFORMACIÓN"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="181dp"
+        android:layout_height="125dp"
+        android:layout_marginTop="228dp"
+        android:adjustViewBounds="true"
+        android:clickable="true"
+        android:onClick="irS1"
+        android:scaleType="fitXY"
+        android:src="@drawable/home1"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mockView2"
-        app:layout_constraintVertical_bias="0.049" />
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="56dp"
-        android:text="Conoce"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/button2"
-        app:layout_constraintHorizontal_bias="0.216"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="44dp"
-        android:text="Conoce"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3"
-        app:layout_constraintVertical_bias="0.288" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

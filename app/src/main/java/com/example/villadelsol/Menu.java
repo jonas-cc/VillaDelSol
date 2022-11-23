@@ -12,6 +12,8 @@ import android.widget.ViewFlipper;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -71,6 +73,21 @@ public class Menu extends AppCompatActivity implements android.view.Menu{
     public void cita(View view) {
         Intent intent_cita = new Intent(this,AgeDate.class);
         startActivity(intent_cita);
+    }
+    public void irS1(View view) {
+        Intent i=new Intent(this, Salon1.class);
+        startActivity(i);
+    }
+    public void irS2(View view) {
+        Intent i=new Intent(this, Salon2.class);
+        startActivity(i);
+    }
+    private void showHomeFragment(){
+        FragmentManager manager=getSupportFragmentManager();
+        FragmentTransaction transaction=manager.beginTransaction();
+        transaction.replace(R.id.nav_host_fragment_content_menu,new HomeFragment());
+        transaction.commit();
+
     }
 
 
