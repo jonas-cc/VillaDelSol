@@ -10,5 +10,9 @@
 
     <string name="menu_home">Inicio</string>
     <string name="menu_gallery">Salones</string>
+    <string name="menu_room1">Salon 1</string>
+    <string name="menu_room2">Salon 2</string>
+    <string name="menu_citas">Citas</string>
+    <string name="menu_admin">Administrador</string>
     <string name="menu_slideshow">Paquetes</string>
 </resources>

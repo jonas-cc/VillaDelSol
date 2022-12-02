@@ -74,6 +74,9 @@ public class HomeFragment extends Fragment {
         startActivity(i);
     }
 
+    public void showRoom1Fragment(View view) {
+    }
+
    /* public void flipperimages(int image){
         ImageView imageView=new ImageView(getActivity());
         imageView.setBackgroundResource(image);

@@ -1,16 +1,16 @@
-package com.example.villadelsol.ui.home;
+package com.example.villadelsol.ui.room2;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class HomeViewModel extends ViewModel {
+public class Room2ViewModel extends ViewModel {
 
     private final MutableLiveData<String> mText;
 
-    public HomeViewModel() {
+    public Room2ViewModel() {
         mText = new MutableLiveData<>();
-        //mText.setValue("INICIO");
+        //mText.setValue("SALLON 1");
     }
 
     public LiveData<String> getText() {
