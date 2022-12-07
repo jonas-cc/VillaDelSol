@@ -72,7 +72,7 @@
         android:layout_marginTop="228dp"
         android:adjustViewBounds="true"
         android:clickable="true"
-        android:onClick="showRoom1Fragment"
+        android:onClick=""
         android:scaleType="fitXY"
         android:src="@drawable/home1"
         app:layout_constraintEnd_toEndOf="parent"

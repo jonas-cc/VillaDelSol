@@ -2,6 +2,7 @@ package com.example.villadelsol;
 
 import android.content.ComponentName;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.MenuItem;
@@ -30,7 +31,6 @@ public class Menu extends AppCompatActivity implements android.view.Menu{
     private ActivityMenuBinding binding;
     private ViewFlipper v_Flipper;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,6 +38,7 @@ public class Menu extends AppCompatActivity implements android.view.Menu{
         binding = ActivityMenuBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        String cel= "525548876966";
         setSupportActionBar(binding.appBarMenu.toolbar);
         binding.appBarMenu.fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,6 +46,12 @@ public class Menu extends AppCompatActivity implements android.view.Menu{
                 Snackbar.make(view, "Redireccionando al ChatBot...", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
                 System.out.println("Direccionar a WhatsApp");
+
+                Intent sendIntent = new Intent();
+                sendIntent.setAction(Intent.ACTION_SEND);
+                String uri = "whatsapp://send?phone="+cel;
+                sendIntent.setData(Uri.parse(uri));
+                startActivity(sendIntent);
             }
         });
         DrawerLayout drawer = binding.drawerLayout;
@@ -70,6 +77,13 @@ public class Menu extends AppCompatActivity implements android.view.Menu{
         Intent intent_cita = new Intent(this,AgeDate.class);
         startActivity(intent_cita);
     }
+    /*public void whats(View view) {
+        Intent sendIntent = new Intent();
+        sendIntent.setAction(Intent.ACTION_SEND);
+        String uri = "whatsapp://send?phone=525548876966";
+        sendIntent.setData(Uri.parse(uri));
+        startActivity(sendIntent);
+    }*/
     public void irS1(View view) {
     }
     public void irS2() {

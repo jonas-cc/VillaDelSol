@@ -15,4 +15,27 @@
     <string name="menu_citas">Citas</string>
     <string name="menu_admin">Administrador</string>
     <string name="menu_slideshow">Paquetes</string>
+
+    <string-array name="eventos">
+        <item>Bodas</item>
+        <item>XV Años</item>
+        <item>Infantil</item>
+        <item>Cumpleaños</item>
+        <item>Graduación</item>
+        <item>Conferencia</item>
+        <item>Presentación</item>
+    </string-array>
+
+    <string-array name="salones">
+        <item>Salon 1</item>
+        <item>Salon 2</item>
+    </string-array>
+
+    <string-array name="num_invitados">
+        <item>50</item>
+        <item>100</item>
+        <item>150</item>
+        <item>200</item>
+        <item>250</item>
+    </string-array>
 </resources>
