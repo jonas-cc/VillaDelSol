@@ -16,16 +16,43 @@ import android.widget.CalendarView;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.Spinner;
+import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.example.villadelsol.ui.home.HomeFragment;
 import com.example.villadelsol.ui.slideshow.SlideshowFragment;
+import com.google.gson.JsonParser;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+import org.json.JSONException;
 
 import java.util.Calendar;
+import java.util.HashMap;
+import java.util.Map;
 
 public class AgeDate extends AppCompatActivity {
+    String url="";
+    RequestQueue respuestaService;
+
+
     ImageButton imgbutton;
     EditText etDate;
     DatePickerDialog.OnDateSetListener setListener;
+
+    EditText nombre, correo,telefono,tEvento,fecha,salon,numInv;
+    Spinner tipo, room, inv;
+    EditText tipo1;
+    String salon1="1";
+    EditText txtEvento, txtSalon, txtInvitados;
+
 
 
     @Override
@@ -34,6 +61,8 @@ public class AgeDate extends AppCompatActivity {
         setContentView(R.layout.activity_age_date);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        relacionarVistas();
+
         imgbutton=findViewById(R.id.imageButton);
         etDate=findViewById(R.id.editTextDate);
 
@@ -41,6 +70,9 @@ public class AgeDate extends AppCompatActivity {
         final int year = calendar.get(Calendar.YEAR);
         final int month = calendar.get(Calendar.MONTH);
         final int day = calendar.get(Calendar.DAY_OF_MONTH);
+
+        //
+        nombre=findViewById((R.id.editTextTextPersonName2));
 
         /*imgbutton.setOnClickListener(new View.OnClickListener(){
 
@@ -82,6 +114,19 @@ public class AgeDate extends AppCompatActivity {
 
 
     }
+    public void relacionarVistas(){
+
+        nombre=(EditText)findViewById(R.id.editTextTextPersonName2);
+        correo=(EditText)findViewById(R.id.editTextTextEmailAddress);
+        telefono=(EditText) findViewById(R.id.editTextPhone);
+        tipo=(Spinner) findViewById(R.id.spinner);
+        fecha=(EditText) findViewById(R.id.editTextDate);
+        room=(Spinner) findViewById((R.id.spinner2));
+        inv=(Spinner) findViewById(R.id.spinner3);
+        txtEvento=(EditText) findViewById(R.id.txtTEvento);
+        txtInvitados=(EditText) findViewById(R.id.txtInvitados);
+        txtSalon=(EditText) findViewById(R.id.txtSalon);
+    }
 
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
@@ -104,4 +149,76 @@ public class AgeDate extends AppCompatActivity {
         transaction.commit();
 
     }
+
+    public void limpiar(){
+
+    }
+    public void insercion(View v){
+        RequestQueue servicioJson= Volley.newRequestQueue(this);
+        url="http://192.168.56.1:3400/api/registrarCita";
+
+        webServices();
+    }
+
+    private void webServices() {
+        RequestQueue servicioConsulta= Volley.newRequestQueue(this);
+        StringRequest respuestaConsulta= new StringRequest(Request.Method.POST,
+                url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+
+                        JSONObject json= null;
+                        //JSONObject cita = jParser.get
+
+                        nombre.setText("");
+                        txtSalon.setText(room.getSelectedItem().toString());
+                        txtInvitados.setText(inv.getSelectedItem().toString());
+                        txtEvento.setText(tipo.getSelectedItem().toString());
+                        try {
+                            JSONArray r =new JSONArray(response);
+                            for (int i = 0; i < r.length() ; i++) {
+                                json=r.getJSONObject(i);
+                                //t5.append(json.getString("_id"));
+                                nombre.append(json.getString("nombre"));
+                                correo.append(json.getString("correo"));
+                                telefono.append(json.getString("telefono"));
+                                txtEvento.append(json.getString("tipoEvento"));
+                                fecha.append(json.getString("fecha"));
+                                txtSalon.append(json.getString("salon"));
+                                txtInvitados.append(json.getString("numInvitados"));
+                            }
+                        } catch (JSONException e) {
+                            Toast.makeText(getApplicationContext(),
+                                    "ERROR JSON",
+                                    Toast.LENGTH_SHORT).show();
+                            System.out.println(e);
+                        }
+                        Toast.makeText(getApplicationContext(),
+                                response.toString(),
+                                Toast.LENGTH_SHORT).show();
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(getApplicationContext(),
+                        "ERROR RED",
+                        Toast.LENGTH_SHORT).show();
+            }
+        }){   @Override
+        protected Map<String, String> getParams() throws AuthFailureError {
+            Map<String, String> params = new HashMap<>();
+            params.put("nombre", nombre.getText().toString());
+            params.put("correo", correo.getText().toString());
+            params.put("telefono", telefono.getText().toString());
+            params.put("tipoEvento", tipo.getSelectedItem().toString());
+            params.put("salon", room.getSelectedItem().toString());
+            params.put("fecha", fecha.getText().toString());
+            params.put("numInvitados", inv.getSelectedItem().toString());
+            return params;
+        }        };
+        servicioConsulta.add(respuestaConsulta);
+    }
 }
+
+
