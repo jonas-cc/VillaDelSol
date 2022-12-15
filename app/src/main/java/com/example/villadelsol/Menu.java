@@ -21,6 +21,7 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.example.villadelsol.databinding.ActivityMenuBinding;
+import com.example.villadelsol.ui.dashboard.DashboardFragment;
 import com.example.villadelsol.ui.room1.Room1Fragment;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
@@ -37,8 +38,9 @@ public class Menu extends AppCompatActivity implements android.view.Menu{
 
         binding = ActivityMenuBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
         String cel= "525548876966";
+        String mensaje= "Hola";
+
         setSupportActionBar(binding.appBarMenu.toolbar);
         binding.appBarMenu.fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,8 +50,8 @@ public class Menu extends AppCompatActivity implements android.view.Menu{
                 System.out.println("Direccionar a WhatsApp");
 
                 Intent sendIntent = new Intent();
-                sendIntent.setAction(Intent.ACTION_SEND);
-                String uri = "whatsapp://send?phone="+cel;
+                sendIntent.setAction(Intent.ACTION_VIEW);
+                String uri = "whatsapp://send?phone="+cel+"&text="+mensaje;
                 sendIntent.setData(Uri.parse(uri));
                 startActivity(sendIntent);
             }
@@ -73,6 +75,12 @@ public class Menu extends AppCompatActivity implements android.view.Menu{
         getMenuInflater().inflate(R.menu.menu, menu);
         return true;
     }
+
+    public void dashboard(View view) {
+        Intent intent_dash = new Intent(this,DashboardAdmin.class);
+        startActivity(intent_dash);
+    }
+
     public void cita(View view) {
         Intent intent_cita = new Intent(this,AgeDate.class);
         startActivity(intent_cita);

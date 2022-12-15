@@ -133,7 +133,7 @@
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:text="Name"
-                android:visibility="visible" />
+                android:visibility="invisible" />
 
             <EditText
                 android:id="@+id/txtSalon"
@@ -142,7 +142,7 @@
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:text="Name"
-                android:visibility="visible" />
+                android:visibility="invisible" />
 
             <EditText
                 android:id="@+id/txtInvitados"
@@ -151,7 +151,7 @@
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:text="Name"
-                android:visibility="visible" />
+                android:visibility="invisible" />
         </LinearLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

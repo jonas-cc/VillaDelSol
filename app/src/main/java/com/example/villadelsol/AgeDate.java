@@ -24,6 +24,8 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.villadelsol.ui.home.HomeFragment;
@@ -155,7 +157,7 @@ public class AgeDate extends AppCompatActivity {
     }
     public void insercion(View v){
         RequestQueue servicioJson= Volley.newRequestQueue(this);
-        url="http://192.168.56.1:3400/api/registrarCita";
+        url="http://192.168.139.129:3400/api/registrarCita";
 
         webServices();
     }
@@ -172,21 +174,31 @@ public class AgeDate extends AppCompatActivity {
                         //JSONObject cita = jParser.get
 
                         nombre.setText("");
+                        correo.setText("");
+                        telefono.setText("");
+                        txtEvento.setText("");
+                        fecha.setText("");
+                        txtSalon.setText("");
+                        txtInvitados.setText("");
+
                         txtSalon.setText(room.getSelectedItem().toString());
                         txtInvitados.setText(inv.getSelectedItem().toString());
                         txtEvento.setText(tipo.getSelectedItem().toString());
                         try {
-                            JSONArray r =new JSONArray(response);
-                            for (int i = 0; i < r.length() ; i++) {
-                                json=r.getJSONObject(i);
+                            json= new JSONObject(response);
+                            JSONArray r = json.getJSONArray("cita");
+                            JSONArray jsonArray = new JSONArray(response);
+                            for (int i = 0; i < jsonArray.length() ; i++) {
+                                JSONObject objeto = r.getJSONObject(i);
+                                JSONObject cita = jsonArray.getJSONObject(i);
                                 //t5.append(json.getString("_id"));
-                                nombre.append(json.getString("nombre"));
-                                correo.append(json.getString("correo"));
-                                telefono.append(json.getString("telefono"));
-                                txtEvento.append(json.getString("tipoEvento"));
-                                fecha.append(json.getString("fecha"));
-                                txtSalon.append(json.getString("salon"));
-                                txtInvitados.append(json.getString("numInvitados"));
+                                nombre.append(cita.getString("nombre"));
+                                correo.append(cita.getString("correo"));
+                                telefono.append(cita.getString("telefono"));
+                                txtEvento.append(cita.getString("tipoEvento"));
+                                fecha.append(cita.getString("fecha"));
+                                txtSalon.append(cita.getString("salon"));
+                                txtInvitados.append(cita.getString("numInvitados"));
                             }
                         } catch (JSONException e) {
                             Toast.makeText(getApplicationContext(),
@@ -197,6 +209,7 @@ public class AgeDate extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(),
                                 response.toString(),
                                 Toast.LENGTH_SHORT).show();
+
                     }
                 }, new Response.ErrorListener() {
             @Override
@@ -204,6 +217,7 @@ public class AgeDate extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(),
                         "ERROR RED",
                         Toast.LENGTH_SHORT).show();
+                System.out.println(error);
             }
         }){   @Override
         protected Map<String, String> getParams() throws AuthFailureError {
@@ -219,6 +233,7 @@ public class AgeDate extends AppCompatActivity {
         }        };
         servicioConsulta.add(respuestaConsulta);
     }
+
 }
 
 

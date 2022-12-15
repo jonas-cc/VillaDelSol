@@ -37,4 +37,7 @@ public class AdminFragment extends Fragment {
         super.onDestroyView();
         binding = null;
     }
+
+    public void dashboard(View view) {
+    }
 }
