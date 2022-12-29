@@ -8,6 +8,9 @@ import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.SubMenu;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.ListView;
+import android.widget.Toast;
 import android.widget.ViewFlipper;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,17 +23,36 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.example.villadelsol.databinding.ActivityMenuBinding;
+import com.example.villadelsol.ui.citas.CitasFragment;
 import com.example.villadelsol.ui.dashboard.DashboardFragment;
 import com.example.villadelsol.ui.room1.Room1Fragment;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Menu extends AppCompatActivity implements android.view.Menu{
 
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityMenuBinding binding;
     private ViewFlipper v_Flipper;
+    String url="";
+    RequestQueue respuestaService;
+    ArrayList<String> datos=new ArrayList<>();//listas
+    ListView lista;
+
+    EditText idD, idU;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +60,9 @@ public class Menu extends AppCompatActivity implements android.view.Menu{
 
         binding = ActivityMenuBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        RelacionarVistasUD();
+
         String cel= "525548876966";
         String mensaje= "Hola";
 
@@ -74,6 +99,11 @@ public class Menu extends AppCompatActivity implements android.view.Menu{
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu, menu);
         return true;
+    }
+
+    public void RelacionarVistasUD(){
+        idU=(EditText) findViewById(R.id.editTextTextPersonName);
+        idD=(EditText) findViewById(R.id.editTextTextPersonName4);
     }
 
     public void dashboard(View view) {
@@ -114,6 +144,13 @@ public class Menu extends AppCompatActivity implements android.view.Menu{
         //fragmentTransaction.setReorderingAllowed(true);
         fragmentTransaction.replace(R.id.nav_host_fragment_content_menu,fr);
         fragmentTransaction.commit();
+
+    }
+
+    public void validarID(View view) {
+        CitasFragment m = new CitasFragment();
+        String IdDelete = m.setIDBorrar();
+
 
     }
     @Override

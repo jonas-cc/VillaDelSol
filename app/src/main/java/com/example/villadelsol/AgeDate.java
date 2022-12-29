@@ -49,11 +49,10 @@ public class AgeDate extends AppCompatActivity {
     EditText etDate;
     DatePickerDialog.OnDateSetListener setListener;
 
-    EditText nombre, correo,telefono,tEvento,fecha,salon,numInv;
+    EditText nombre, correo,telefono,txtEvento,fecha,txtSalon,txtInvitados;
     Spinner tipo, room, inv;
     EditText tipo1;
     String salon1="1";
-    EditText txtEvento, txtSalon, txtInvitados;
 
 
 
@@ -157,7 +156,7 @@ public class AgeDate extends AppCompatActivity {
     }
     public void insercion(View v){
         RequestQueue servicioJson= Volley.newRequestQueue(this);
-        url="http://192.168.139.129:3400/api/registrarCita";
+        url="http://192.168.56.1:3400/api/registrarCita";
 
         webServices();
     }
@@ -201,9 +200,9 @@ public class AgeDate extends AppCompatActivity {
                                 txtInvitados.append(cita.getString("numInvitados"));
                             }
                         } catch (JSONException e) {
-                            Toast.makeText(getApplicationContext(),
-                                    "ERROR JSON",
-                                    Toast.LENGTH_SHORT).show();
+                            //Toast.makeText(getApplicationContext(),
+                              //      "ERROR JSON",
+                                //    Toast.LENGTH_SHORT).show();
                             System.out.println(e);
                         }
                         Toast.makeText(getApplicationContext(),

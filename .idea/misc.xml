@@ -10,8 +10,9 @@
         <entry key="..\:/Documentos/Proyecto Android/VillaDelSol/app/src/main/res/drawable/ic_menu_camera.xml" value="0.194" />
         <entry key="..\:/Documentos/Proyecto Android/VillaDelSol/app/src/main/res/drawable/logo_blanco_background.xml" value="0.1945" />
         <entry key="..\:/Documentos/Proyecto Android/VillaDelSol/app/src/main/res/drawable/side_nav_bar.xml" value="0.194" />
-        <entry key="..\:/Documentos/Proyecto Android/VillaDelSol/app/src/main/res/layout/activity_actividad_inicio.xml" value="0.1" />
+        <entry key="..\:/Documentos/Proyecto Android/VillaDelSol/app/src/main/res/layout/activity_actividad_inicio.xml" value="0.33" />
         <entry key="..\:/Documentos/Proyecto Android/VillaDelSol/app/src/main/res/layout/activity_age_date.xml" value="0.33" />
+        <entry key="..\:/Documentos/Proyecto Android/VillaDelSol/app/src/main/res/layout/activity_confirmed_update.xml" value="0.33" />
         <entry key="..\:/Documentos/Proyecto Android/VillaDelSol/app/src/main/res/layout/activity_dashboard_admin.xml" value="0.25" />
         <entry key="..\:/Documentos/Proyecto Android/VillaDelSol/app/src/main/res/layout/activity_main.xml" value="0.22" />
         <entry key="..\:/Documentos/Proyecto Android/VillaDelSol/app/src/main/res/layout/activity_menu.xml" value="0.33" />
@@ -19,6 +20,7 @@
         <entry key="..\:/Documentos/Proyecto Android/VillaDelSol/app/src/main/res/layout/activity_paquetes_r2.xml" value="0.17074275362318841" />
         <entry key="..\:/Documentos/Proyecto Android/VillaDelSol/app/src/main/res/layout/activity_salon1.xml" value="0.1" />
         <entry key="..\:/Documentos/Proyecto Android/VillaDelSol/app/src/main/res/layout/activity_salon2.xml" value="0.22" />
+        <entry key="..\:/Documentos/Proyecto Android/VillaDelSol/app/src/main/res/layout/activity_update_date.xml" value="0.2" />
         <entry key="..\:/Documentos/Proyecto Android/VillaDelSol/app/src/main/res/layout/app_bar_menu.xml" value="0.22" />
         <entry key="..\:/Documentos/Proyecto Android/VillaDelSol/app/src/main/res/layout/content_menu.xml" value="0.22" />
         <entry key="..\:/Documentos/Proyecto Android/VillaDelSol/app/src/main/res/layout/fragment_admin.xml" value="0.25" />
@@ -44,5 +46,8 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="SuppressKotlinCodeStyleNotification">
+    <option name="disableForAll" value="true" />
   </component>
 </project>
